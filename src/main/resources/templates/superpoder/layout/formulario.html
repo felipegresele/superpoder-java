@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Superpoder</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<h1>Cadastrar Novo Superpoder</h1>
+
+<form th:action="@{/superpoderes/novo}" th:object="${superpoder}" method="post">
+    <label for="nome">Nome:</label>
+    <input type="text" th:field="*{nome}" />
+    <div th:if="${#fields.hasErrors('nome')}" class="error">
+        <p th:errors="*{nome}"></p>
+    </div>
+
+    <label for="descricao">Descrição:</label>
+    <input type="text" th:field="*{descricao}" />
+    <div th:if="${#fields.hasErrors('descricao')}" class="error">
+        <p th:errors="*{descricao}"></p>
+    </div>
+
+    <label for="poder">Poder (1-10):</label>
+    <input type="number" th:field="*{poder}" />
+    <div th:if="${#fields.hasErrors('poder')}" class="error">
+        <p th:errors="*{poder}"></p>
+    </div>
+
+    <label for="razao">Razão:</label>
+    <input type="text" th:field="*{razao}" />
+    <div th:if="${#fields.hasErrors('razao')}" class="error">
+        <p th:errors="*{razao}"></p>
+    </div>
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+<a href="/superpoderes">Voltar para lista</a>
+</body>
+</html>
