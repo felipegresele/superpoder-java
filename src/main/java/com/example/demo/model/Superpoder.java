@@ -24,11 +24,11 @@ public class Superpoder {
     private Long id;
 
     @NotNull(message = "O nome não pode ser nulo.")
-    @Size(min = 3, max = 50, message = "O nome deve ter entre 5 a 50 caracteres.")
+    @Size(min = 3, max = 50, message = "O nome deve ter entre 3V1__criar_tabela_superpoder.sql a 50 caracteres.")
     private String nome;
 
-    @NotNull(message = "A descrição não pode ser nula.")
-    @Size(min = 10, max = 200, message = "A descrição deve ter entre 10 e 200 caracteres.")
+    @Min(value = 1, message = "A nota mínima é 1.")
+    @Max(value = 10, message = "A nota máxima é 10.")
     private String descricao;
 
     @Size(min = 1, max = 10, message = "A nota do poder deve ser entre 1 a 10.")
