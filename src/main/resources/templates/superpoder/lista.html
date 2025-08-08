@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ranking dos Piores Superpoderes</title>
+</head>
+<body>
+<h1>Ranking dos Piores Superpoderes</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Nota</th>
+        <th>Razão</th>
+        <th>Data Criação</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="poder : ${superpoderes}">
+        <td th:text="${poder.nome}">Nome</td>
+        <td th:text="${poder.descricao}">Descrição</td>
+        <td th:text="${poder.nota}">Nota</td>
+        <td th:text="${poder.razao}">Razão</td>
+        <td th:text="${poder.dataCriacao}">Data</td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/superpoderes/novo">Adicionar Novo Superpoder</a>
+</body>
+</html>

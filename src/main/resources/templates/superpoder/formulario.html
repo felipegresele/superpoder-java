@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adicionar Superpoder</title>
+</head>
+<body>
+<h1>Adicionar Novo Superpoder</h1>
+<form th:action="@{/superpoderes/novo}" th:object="${superpoder}" method="post">
+    <div>
+        <label>Nome:</label>
+        <input type="text" th:field="*{nome}" />
+        <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Erro no nome</p>
+    </div>
+    <div>
+        <label>Descrição:</label>
+        <textarea th:field="*{descricao}"></textarea>
+        <p th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}">Erro na descrição</p>
+    </div>
+    <div>
+        <label>Nota:</label>
+        <input type="number" th:field="*{nota}" min="1" max="10" />
+        <p th:if="${#fields.hasErrors('nota')}" th:errors="*{nota}">Erro na nota</p>
+    </div>
+    <div>
+        <label>Razão:</label>
+        <textarea th:field="*{razao}"></textarea>
+        <p th:if="${#fields.hasErrors('razao')}" th:errors="*{razao}">Erro na razão</p>
+    </div>
+    <div>
+        <label>Data Criação:</label>
+        <input type="date" th:field="*{dataCriacao}" />
+        <p th:if="${#fields.hasErrors('dataCriacao')}" th:errors="*{dataCriacao}">Erro na data</p>
+    </div>
+    <button type="submit">Salvar</button>
+</form>
+
+<a href="/superpoderes">Voltar para lista</a>
+</body>
+</html>
